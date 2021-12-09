@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1Serialize", "Lab16\1Serialize.csproj", "{27C07B0D-CF03-42F0-A1AE-924F88F4AD90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2Deserialize", "2Deserialize\2Deserialize.csproj", "{1A1DB185-9559-4884-B6BD-E5C4E70261A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{27C07B0D-CF03-42F0-A1AE-924F88F4AD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27C07B0D-CF03-42F0-A1AE-924F88F4AD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27C07B0D-CF03-42F0-A1AE-924F88F4AD90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1DB185-9559-4884-B6BD-E5C4E70261A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1DB185-9559-4884-B6BD-E5C4E70261A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1DB185-9559-4884-B6BD-E5C4E70261A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1DB185-9559-4884-B6BD-E5C4E70261A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
