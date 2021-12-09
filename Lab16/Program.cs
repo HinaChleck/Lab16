@@ -70,63 +70,58 @@ namespace Lab16
                     products[i] = new Product();
 
 
-                    try
-                    {
+                    uint code;
                         Console.Write("Введите код товара №{0}: ", i + 1);
-                        products[i].Code = Convert.ToUInt32(Console.ReadLine());
+                        string codeS = Console.ReadLine();
+                    if (UInt32.TryParse(codeS, out code))
+                    {
+                        products[i].Code = code;
                         sw.Write("{");
-                        sw.Write("\"Код товара\":\"{0}\",", products[i].Code);
+                        sw.Write("\"Код товара\":\"{0}\",", code);
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Console.WriteLine("Введен некорректный код товара. Код не записан");
-                        Console.WriteLine("(Ошибка: {0})", ex.Message);
-                    }
-
-                    try
+                        products[i].Code = 0;
+                        sw.Write("{");
+                        sw.Write("\"Код товара\":\"{0}\",", 0);
+                        Console.WriteLine("Предупреждение: неверный формат введенных данных. Код товара не записан");
+                    }                    
+                    
+                    Console.Write("Введите наименование товара №{0}: ", i + 1);
+                    products[i].Name = Console.ReadLine();
+                    sw.Write("\"Название товара\":\"{0}\",", products[i].Name);
+                   
+                    decimal price;
+                    Console.Write("Введите цену товара № {0}: ", i + 1);
+                        string priceS = Console.ReadLine();
+                    if (Decimal.TryParse(priceS, out price))
                     {
-                        Console.Write("Введите наименование товара №{0}: ", i + 1);
-                        products[i].Name = Console.ReadLine();
-                        sw.Write("\"Название товара\":\"{0}\",", products[i].Name);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Введено некорректное наименование товара. Наименование не записано");
-                        Console.WriteLine("(Ошибка: {0})", ex.Message);
-                    }
 
-
-
-
-
-                    try
-                    {
-                        Console.Write("Введите цену товара №{0}: ", i + 1);
-                        products[i].Price = Convert.ToDecimal(Console.ReadLine());
-                        
+                        products[i].Price = price;
                         sw.Write("\"Цена товара\":\"{0}\"", products[i].Price);
                         sw.Write("}");
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Console.WriteLine("Введена некорректная цена товара. Цена не записана");
-                        Console.WriteLine("(Ошибка: {0})", ex.Message);
+                        products[i].Price = price;
+                        sw.Write("\"Цена товара\":\"{0}\"", 0);
+                        sw.Write("}");
+                        Console.WriteLine("Предупреждение: неверный формат введенных данных. Цена товара не записана");
                     }
-
-
+                    
                 }
             }
-            for (int i = 0; i < products.Length; i++)
+            /*for (int i = 0; i < products.Length; i++)
             {
                 Console.WriteLine(products[i].Code);
                 Console.WriteLine(products[i].Name);
                 Console.WriteLine(products[i].Price); 
             }
-
+            */
             Console.ReadKey();
         }
 
-        class Product
+        public class Product
         {
             [JsonPropertyName("Код товара")]
             public uint Code { get; set; }
